@@ -1,0 +1,89 @@
+{
+  "name": "noctifer20",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/noctifer20/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/webpack:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "dependsOn": [{
+        "projects": "dependencies",
+        "target": "build"
+      }],
+      "options": {
+        "compiler": "babel",
+        "outputPath": "dist/apps/noctifer20",
+        "index": "apps/noctifer20/src/index.html",
+        "baseHref": "/",
+        "main": "apps/noctifer20/src/main.tsx",
+        "polyfills": "apps/noctifer20/src/polyfills.ts",
+        "tsConfig": "apps/noctifer20/tsconfig.app.json",
+        "assets": [
+          "apps/noctifer20/src/favicon.ico",
+          "apps/noctifer20/src/assets"
+        ],
+        "styles": ["apps/noctifer20/src/styles.css"],
+        "scripts": [],
+        "webpackConfig": "apps/noctifer20/webpack.config.js"
+      },
+      "configurations": {
+        "development": {
+          "extractLicenses": false,
+          "optimization": false,
+          "sourceMap": true,
+          "vendorChunk": true
+        },
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/noctifer20/src/environments/environment.ts",
+              "with": "apps/noctifer20/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/webpack:dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "noctifer20:build",
+        "hmr": true
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "noctifer20:build:development"
+        },
+        "production": {
+          "buildTarget": "noctifer20:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/noctifer20/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "apps/noctifer20/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["game_of_life"]
+}

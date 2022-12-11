@@ -14,7 +14,10 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@noctifer20/game_of_life": ["packages/game_of_life/pkg"],
+      "@noctifer20/game_of_life/*": ["packages/game_of_life/pkg/*"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

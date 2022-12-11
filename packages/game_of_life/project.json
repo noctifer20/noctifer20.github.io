@@ -1,0 +1,33 @@
+{
+  "name": "game_of_life",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "packages/game_of_life/src",
+  "targets": {
+    "build": {
+      "executor": "@noctifer20/nx-cargo:wasm-pack",
+      "options": {}
+    },
+    "pack": {
+      "executor": "@noctifer20/nx-cargo:wasm-pack",
+      "options": {}
+    },
+    "test": {
+      "executor": "@noctifer20/nx-cargo:wasm-pack",
+      "options": {}
+    },
+    "publish": {
+      "executor": "@noctifer20/nx-cargo:wasm-pack",
+      "options": {}
+    },
+    "lint": {
+      "executor": "@noctifer20/nx-cargo:clippy",
+      "options": {
+        "fix": false,
+        "failOnWarnings": true,
+        "noDeps": true
+      }
+    }
+  },
+  "tags": []
+}

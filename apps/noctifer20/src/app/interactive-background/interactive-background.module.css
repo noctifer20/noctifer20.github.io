@@ -1,0 +1,13 @@
+/*
+ * Replace this with your own classes
+ *
+ * e.g.
+ * .container {
+ * }
+*/
+canvas {
+  position: absolute;
+  z-index: -1;
+  /*left: -10%;*/
+  /*top: -10%;*/
+}
