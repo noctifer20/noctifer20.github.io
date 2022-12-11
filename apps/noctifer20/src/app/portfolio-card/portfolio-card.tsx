@@ -26,7 +26,7 @@ export const PortfolioCard = () => {
           <FaGithub />
         </a>
         <a
-          href="https://linkedin.com/in/noctifer20"
+          href="https://linkedin.com/in/noctifer"
           target="_blank"
           rel="noreferrer"
         >
